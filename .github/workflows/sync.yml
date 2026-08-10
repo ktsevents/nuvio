@@ -36,6 +36,25 @@ jobs:
           # record sync time + upstream commit for traceability
           printf '{"synced_at":"%s"}\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > sync-info.json
 
+      - name: Build single bundle (apps fetch ONE file, not 61)
+        run: |
+          python3 - <<'PY'
+          import os, json
+          d = 'providers'; out = {}
+          LIMIT = 200 * 1024   # skip oversized bundles that won't run in QuickJS (vixsrc/peachify/anime-sama)
+          for f in sorted(os.listdir(d)):
+              if not f.endswith('.js'):
+                  continue
+              p = os.path.join(d, f)
+              if os.path.getsize(p) > LIMIT:
+                  continue
+              with open(p, encoding='utf-8') as fh:
+                  out[f[:-3]] = fh.read()
+          with open('nuvio_bundle.json', 'w', encoding='utf-8') as fh:
+              json.dump(out, fh, ensure_ascii=False)
+          print('bundle providers:', len(out))
+          PY
+
       - name: Commit & push if changed
         run: |
           git config user.name "nuvio-sync-bot"
