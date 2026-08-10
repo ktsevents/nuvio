@@ -1,0 +1,49 @@
+name: Sync from Nuvio upstream
+
+# Keeps this mirror in sync with NuvioPlugin/All-in-One-Nuvio so the Tv24h apps
+# (which hot-load providers from this repo at runtime) always get the latest
+# provider code WITHOUT any app rebuild. Runs daily + can be triggered manually.
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'   # every 6 hours
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nuvio-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout mirror
+        uses: actions/checkout@v4
+
+      - name: Fetch upstream providers
+        run: |
+          set -e
+          rm -rf _src
+          git clone --depth 1 https://github.com/NuvioPlugin/All-in-One-Nuvio.git _src
+          rm -rf providers
+          mkdir -p providers
+          cp -a _src/providers/. providers/
+          if [ -f _src/manifest.json ]; then cp _src/manifest.json manifest.json; fi
+          rm -rf _src
+          # record sync time + upstream commit for traceability
+          printf '{"synced_at":"%s"}\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > sync-info.json
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "nuvio-sync-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to sync."
+          else
+            git commit -m "sync: $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
