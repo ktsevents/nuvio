@@ -42,17 +42,26 @@ jobs:
           import os, json
           d = 'providers'; out = {}
           LIMIT = 200 * 1024   # skip oversized bundles that won't run in QuickJS (vixsrc/peachify/anime-sama)
+          active = None
+          if os.path.exists('nuvio_active.json'):
+              try:
+                  active = set(json.load(open('nuvio_active.json', encoding='utf-8')))
+              except Exception:
+                  active = None
           for f in sorted(os.listdir(d)):
               if not f.endswith('.js'):
+                  continue
+              name = f[:-3]
+              if active is not None and name not in active:   # only curated providers
                   continue
               p = os.path.join(d, f)
               if os.path.getsize(p) > LIMIT:
                   continue
               with open(p, encoding='utf-8') as fh:
-                  out[f[:-3]] = fh.read()
+                  out[name] = fh.read()
           with open('nuvio_bundle.json', 'w', encoding='utf-8') as fh:
               json.dump(out, fh, ensure_ascii=False)
-          print('bundle providers:', len(out))
+          print('bundle providers:', len(out), '(active list:', 'yes' if active is not None else 'no)')
           PY
 
       - name: Commit & push if changed

@@ -1,1 +1,8 @@
 _src/
+node_modules/
+package.json
+package-lock.json
+test_one.js
+run_curation.sh
+curation_results.txt
+active_names.txt
