@@ -471,14 +471,14 @@
     {
       "id": "moviebox",
       "name": "MovieBox",
-      "description": "MovieBox - Hindi, Tamil, Telugu & English Movies/Series with multi-quality streams",
-      "version": "1.0.1",
-      "author": "Xyr0nX",
+      "description": "MovieBox streaming with multiple language support (DASH + MP4)",
+      "version": "1.2.0",
+      "author": "Nuvio Team",
       "supportedTypes": ["movie", "tv"],
       "filename": "providers/moviebox.js",
       "enabled": true,
-      "hasSettings": true,
-      "formats": ["mp4", "m3u8"],
+      "hasSettings": false,
+      "formats": ["mp4", "mpd"],
       "logo": "https://i.postimg.cc/TPwkfqHh/moviebox.png",
       "contentLanguage": ["en", "hi", "ta", "te"]
     },
@@ -859,6 +859,34 @@
       "formats": ["mp4", "m3u8"],
       "logo": "https://i.postimg.cc/2yLnTzPP/kisskh.jpg",
       "contentLanguage": ["ko", "ch", "ja", "th"]
+    },
+    {
+      "id": "reanime",
+      "name": "Reanime",
+      "description": "Reanime anime streaming with automated AniList mapping and subtitle support",
+      "version": "1.0.0",
+      "author": "Nuvio Team",
+      "supportedTypes": ["movie", "tv"],
+      "filename": "providers/reanime.js",
+      "enabled": true,
+      "hasSettings": false,
+      "formats": ["mkv", "m3u8"],
+      "logo": "https://www.google.com/s2/favicons?domain=reanime.to&sz=128",
+      "contentLanguage": ["en"]
+    },
+    {
+      "id": "mapple",
+      "name": "Mapple",
+      "description": "Mapple multi-hoster movies and TV streaming with PoW session verification and direct HLS streams",
+      "version": "1.0.0",
+      "author": "Nuvio Team",
+      "supportedTypes": ["movie", "tv"],
+      "filename": "providers/mapple.js",
+      "enabled": true,
+      "hasSettings": false,
+      "formats": ["m3u8"],
+      "logo": "https://www.google.com/s2/favicons?domain=mapple.fun&sz=128",
+      "contentLanguage": ["en"]
     }
   ]
 }
