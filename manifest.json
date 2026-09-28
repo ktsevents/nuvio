@@ -506,15 +506,25 @@
       "id": "moviebox",
       "name": "MovieBox",
       "description": "MovieBox streaming with multiple language support (DASH + MP4)",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "author": "Nuvio Team",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/moviebox.js",
       "enabled": true,
-      "hasSettings": false,
-      "formats": ["mp4", "mpd"],
-      "logo": "https://i.postimg.cc/TPwkfqHh/moviebox.png",
-      "contentLanguage": ["en", "hi", "ta", "te"]
+      "formats": [
+        "mp4",
+        "mpd"
+      ],
+      "logo": "https://moviebox.ph/favicon.ico",
+      "contentLanguage": [
+        "en",
+        "hin",
+        "tam",
+        "tel"
+      ]
     },
     {
       "id": "movieblast",
@@ -757,15 +767,21 @@
       "id": "uhdmovies",
       "name": "UHDMovies",
       "description": "UHD Movies streaming with multiple resolution",
-      "version": "1.0.0",
+      "version": "1.2.1",
       "author": "Nuvio Team",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/uhdmovies.js",
       "enabled": true,
-      "hasSettings": true,
-      "formats": ["mp4", "m3u8"],
-      "logo": "https://i.postimg.cc/KzDBBdbK/uhdmovies.png",
-      "contentLanguage": ["en"]
+      "formats": [
+        "mkv"
+      ],
+      "logo": "https://www.google.com/s2/favicons?domain=uhdmovies.pink&sz=128",
+      "contentLanguage": [
+        "en"
+      ]
     },
     {
       "id": "vegamovies",
