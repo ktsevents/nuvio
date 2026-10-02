@@ -20,15 +20,21 @@
       "id": "4khdhub",
       "name": "4KHDHub",
       "description": "4KHDHub direct links",
-      "version": "1.0.1",
+      "version": "1.0.3",
       "author": "Nuvio Team",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/4khdhub.js",
       "enabled": true,
-      "hasSettings": true,
-      "formats": ["mp4", "m3u8"],
-      "logo": "https://i.postimg.cc/DZpW6Xfb/4khdhub.png",
-      "contentLanguage": ["en"]
+      "formats": [
+        "mkv"
+      ],
+      "logo": "https://www.google.com/s2/favicons?domain=4khdhub.click&sz=128",
+      "contentLanguage": [
+        "en"
+      ]
     },
     {
       "id": "1shows",
@@ -449,15 +455,23 @@
       "id": "hdhub4u",
       "name": "HDHub4u",
       "description": "Direct links from HDHub4u with high-speed download support",
-      "version": "1.0.1",
+      "version": "1.1.1",
       "author": "Nuvio Team",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/hdhub4u.js",
       "enabled": true,
-      "hasSettings": true,
-      "formats": ["mp4", "m3u8"],
-      "logo": "https://i.postimg.cc/mryRTf0R/hdhub4u.png",
-      "contentLanguage": ["en"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ],
+      "logo": "https://www.google.com/s2/favicons?domain=new6.hdhub4u.fo&sz=128",
+      "contentLanguage": [
+        "en",
+        "hin"
+      ]
     },
     {
       "id": "hianime",
