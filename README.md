@@ -4,7 +4,7 @@ Auto-synced mirror of [`NuvioPlugin/All-in-One-Nuvio`](https://github.com/NuvioP
 `providers/`.
 
 ## Why
-The Tv24h apps (Android TV / Fire TV + Flutter phone) **hot-load** stream providers
+The TVAPP apps (Android TV / Fire TV + Flutter phone) **hot-load** stream providers
 from this repo at runtime (via `raw.githubusercontent.com`), the same way they load
 the `hula` providers. So when upstream updates a provider, the apps pick it up within
 their cache window — **no app rebuild or redistribution needed**.
